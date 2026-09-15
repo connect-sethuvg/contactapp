@@ -54,17 +54,18 @@ namespace ContactPage.frameworks.Extension
         {
             Result = result;
         }
-
-        public ActionStatus(string locationCode, Exception exception) : base(locationCode, exception)
-        {
-            Result = default;
-        }
         public ActionStatus(bool isSuccess, T result, int totalCount) : base(isSuccess, new ResponseVM("DEFAULT"))
         {
             Result = result;
             TotalCount = totalCount;
         }
 
+
+        public ActionStatus(string locationCode, Exception exception) : base(locationCode, exception)
+        {
+            Result = default;
+        }
+        
         public T? Result { get; }
         public int TotalCount { get; set; }
     }
