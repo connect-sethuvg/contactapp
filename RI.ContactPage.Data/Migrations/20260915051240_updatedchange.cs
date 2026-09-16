@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContactPage.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class Changes : Migration
+    public partial class updatedchange : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "ContactHeader",
+                name: "ContactHeaders",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
@@ -27,7 +27,7 @@ namespace ContactPage.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ContactHeader", x => x.Id);
+                    table.PrimaryKey("PK_ContactHeaders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,9 +49,9 @@ namespace ContactPage.Data.Migrations
                 {
                     table.PrimaryKey("PK_ContactDetails", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ContactDetails_ContactHeader_hdrId",
+                        name: "FK_ContactDetails_ContactHeaders_hdrId",
                         column: x => x.hdrId,
-                        principalTable: "ContactHeader",
+                        principalTable: "ContactHeaders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -69,7 +69,7 @@ namespace ContactPage.Data.Migrations
                 name: "ContactDetails");
 
             migrationBuilder.DropTable(
-                name: "ContactHeader");
+                name: "ContactHeaders");
         }
     }
 }

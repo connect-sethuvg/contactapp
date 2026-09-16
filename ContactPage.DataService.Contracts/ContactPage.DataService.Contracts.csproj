@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ContactPage.Business.Contracts\ContactPage.Business.Contracts.csproj" />
+    <ProjectReference Include="..\ContactPage.Data.Contracts\ContactPage.Data.Contracts.csproj" />
+    <ProjectReference Include="..\ContactPage.frameworks.Extension\ContactPage.frameworks.Extension.csproj" />
+  </ItemGroup>
+
+</Project>

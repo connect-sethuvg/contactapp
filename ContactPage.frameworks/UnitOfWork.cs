@@ -15,9 +15,9 @@ namespace ContactPage.frameworks
         private readonly DbContext _dbContext;
         private IServiceProvider serviceProvider { get; set; }
         private readonly ILogger _logger;
-        private IDbContextTransaction? _transaction = null;
+        //private IDbContextTransaction? _transaction = null;
 
-        #region Constructor        
+        //#region Constructor        
 
         public UnitOfWork(DbContext dbContext, ILoggerFactory loggerFactory, IServiceProvider serviceProvider)
         {
@@ -25,46 +25,46 @@ namespace ContactPage.frameworks
             _dbContext = dbContext;
             _logger = loggerFactory.CreateLogger("logs");
         }
-        #endregion
+        //#endregion
 
-        #region  Methods
+        //#region  Methods
 
-        public IEnumerable<TEntity> Exec<TEntity>(string query, params object[] parameters)
-        {
-            FormattableString sql = FormattableStringFactory.Create(query, parameters);
-            List<TEntity> entities = _dbContext.Database.SqlQuery<TEntity>(sql).ToList();
-            return entities.Select(i => i).AsEnumerable();
-        }
+        //public IEnumerable<TEntity> Exec<TEntity>(string query, params object[] parameters)
+        //{
+        //    FormattableString sql = FormattableStringFactory.Create(query, parameters);
+        //    List<TEntity> entities = _dbContext.Database.SqlQuery<TEntity>(sql).ToList();
+        //    return entities.Select(i => i).AsEnumerable();
+        //}
 
-        public void BeginTransaction()
-        {
-            _transaction = _dbContext.Database.BeginTransaction();
-        }
+        //public void BeginTransaction()
+        //{
+        //    _transaction = _dbContext.Database.BeginTransaction();
+        //}
 
 
-        public int Commit()
-        {
-            lock (_lock)
-            {
-                try
-                {
-                    int result = _dbContext.SaveChanges();
-                    _transaction.Commit();
-                    return result;
-                }
-                catch
-                {
-                    _transaction.Rollback();
-                    return 0;
-                }
-                finally
-                {
+        //public int Commit()
+        //{
+        //    lock (_lock)
+        //    {
+        //        try
+        //        {
+        //            int result = _dbContext.SaveChanges();
+        //            _transaction.Commit();
+        //            return result;
+        //        }
+        //        catch
+        //        {
+        //            _transaction.Rollback();
+        //            return 0;
+        //        }
+        //        finally
+        //        {
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
-        private static readonly object _lock = new();
+        //private static readonly object _lock = new();
 
 
         public async Task<int> CommitAsync()
@@ -82,30 +82,30 @@ namespace ContactPage.frameworks
 
         }
 
-        public int CommitTransaction()
-        {
-            lock (_lock)
-            {
-                try
-                {
-                    int result = _dbContext.SaveChangesAsync().Result;
-                    _transaction.Commit();
-                    return result;
-                }
-                finally
-                {
+        //public int CommitTransaction()
+        //{
+        //    lock (_lock)
+        //    {
+        //        try
+        //        {
+        //            int result = _dbContext.SaveChangesAsync().Result;
+        //            _transaction.Commit();
+        //            return result;
+        //        }
+        //        finally
+        //        {
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         // "Employee-നെ database-ൽ access ചെയ്യാൻ വേണ്ട Repository എനിക്ക് ഉണ്ടാക്കി തരൂ." -- Example for understanding !! 
         public IRepository<TEntity> Repository<TEntity>() where TEntity : class, IEntity
         {
-            object? instance = serviceProvider.GetService(typeof(TEntity)); 
+            object? instance = serviceProvider.GetService(typeof(TEntity));
             //  ഉപയോഗിച്ച് type കണ്ടെത്തുകയും
             Type instanceType = instance.GetType();
-            MethodInfo setMethod = GetType().GetTypeInfo().GetMethod("CreateRepository").MakeGenericMethod(typeof(TEntity), instanceType);  
+            MethodInfo setMethod = GetType().GetTypeInfo().GetMethod("CreateRepository").MakeGenericMethod(typeof(TEntity), instanceType);
             //Reflection ഉപയോഗിച്ച് CreateRepository() method കണ്ടെത്തി execute ചെയ്യുകയും,
             IRepository<TEntity>? repository = (IRepository<TEntity>?)setMethod.Invoke(this, new object[] { });
             //IRepository<TEntity> ആയി repository return ചെയ്യുകയും ചെയ്യുന്നു."
@@ -118,11 +118,11 @@ namespace ContactPage.frameworks
             return repository;
         }
 
-        public void Rollback()
-        {
-            _transaction.Rollback();
-        }
-        #endregion
+        //public void Rollback()
+        //{
+        //    _transaction.Rollback();
+        //}
+        //#endregion
 
         #region IDisposable         
         /// <summary>

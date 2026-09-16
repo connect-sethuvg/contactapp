@@ -33,9 +33,21 @@ namespace ContactPage.frameworks.Extension
             Response = actionStatus.Response;
         }
 
+        public static implicit operator bool (ActionStatus actionStatus)
+        {
+            return actionStatus.IsSuccess;
+        }
+
+        public static explicit operator ActionStatus(bool isSuccess)
+        {
+            return new ActionStatus(isSuccess, new ResponseVM("DEFAULT"));
+        }
+
         public bool IsSuccess { get; set; } = false;
-        public Exception Exception { get; set; }
-        public ResponseVM Response { get; }
+        public Exception? Exception { get; set; }
+        public ResponseVM? Response { get; set; }
+        public bool HasException => Exception != null;
+
     }
 
     public class ActionStatus<T> : ActionStatus

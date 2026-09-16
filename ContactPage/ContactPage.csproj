@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.20" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ContactPage.Business.Contracts\ContactPage.Business.Contracts.csproj" />
+    <ProjectReference Include="..\ContactPage.Business\ContactPage.Business.csproj" />
+    <ProjectReference Include="..\ContactPage.Data.Contracts\ContactPage.Data.Contracts.csproj" />
+    <ProjectReference Include="..\ContactPage.DataService.Contracts\ContactPage.DataService.Contracts.csproj" />
+    <ProjectReference Include="..\ContactPage.DataService\ContactPage.DataService.csproj" />
+    <ProjectReference Include="..\ContactPage.DTO.Mappers\ContactPage.DTO.Mappers.csproj" />
+    <ProjectReference Include="..\ContactPage.DTOs\ContactPage.DTOs.csproj" />
+    <ProjectReference Include="..\ContactPage.frameworks.Extension\ContactPage.frameworks.Extension.csproj" />
+    <ProjectReference Include="..\ContactPage.frameworks\ContactPage.frameworks.csproj" />
+    <ProjectReference Include="..\RI.ContactPage.Data\ContactPage.Data.csproj" />
+  </ItemGroup>
+
+</Project>

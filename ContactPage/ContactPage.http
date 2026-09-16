@@ -1,0 +1,36 @@
+@ContactPage_HostAddress = https://localhost:7127
+
+GET {{ContactPage_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+GET {{ContactPage_HostAddress}}/weatherforecast
+
+###
+
+POST {{ContactPage_HostAddress}}/api/contactpageheader/CreateContactHeader
+Content-Type: application/json
+
+{
+"Name": "VGS",
+"Email" : "VG@gmail.com",
+"Activestatus" : 1, 
+"CreatedUserId": 1
+
+}
+
+###
+
+POST {{ContactPage_HostAddress}}/api/contactpageheader/EditContactHeader
+Content-Type: application/json
+
+{
+  "id":2,
+  "Name": "Madhavan",
+"Email" : "VS@gmail.com",
+"Activestatus" : 0,
+"EditedUserId":2
+}
+
+###

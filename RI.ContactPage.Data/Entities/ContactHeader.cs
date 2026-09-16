@@ -15,6 +15,6 @@ namespace ContactPage.Data.Entities
         public int ActiveStatus { get; set; }
         public long? CreatedUserId { get; set; }
         public long? EditedUserId { get; set; }
-        public ICollection<ContactDetails> contactDetails { get; set; } = new List<ContactDetails>();
+        public virtual ICollection<ContactDetail>? contactDetails { get; set; } 
     }
 }

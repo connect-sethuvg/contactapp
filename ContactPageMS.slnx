@@ -1,0 +1,25 @@
+<Solution>
+  <Folder Name="/Business Service/">
+    <Project Path="ContactPage.Business.Contracts/ContactPage.Business.Contracts.csproj" Id="1d9ef402-8e12-4101-9ff0-2d8f6624609a" />
+    <Project Path="ContactPage.Business/ContactPage.Business.csproj" Id="96b4271e-02d7-47de-a007-fcd756817b2b" />
+  </Folder>
+  <Folder Name="/Data Service/">
+    <Project Path="ContactPage.DataService.Contracts/ContactPage.DataService.Contracts.csproj" Id="74502342-66c8-435d-ad04-3d25edbe8f21" />
+    <Project Path="ContactPage.DataService/ContactPage.DataService.csproj" Id="16427e16-9e72-45fd-85c1-1a9a710823d5" />
+  </Folder>
+  <Folder Name="/Data/">
+    <Project Path="ContactPage.Data.Contracts/ContactPage.Data.Contracts.csproj" Id="4bec729c-a5b8-4121-999a-fad33360bb33" />
+    <Project Path="RI.ContactPage.Data/ContactPage.Data.csproj" Id="4ee255de-d161-4750-8b8c-a28a1af5c853" />
+  </Folder>
+  <Folder Name="/DTOs/">
+    <Project Path="ContactPage.DTO.Mappers/ContactPage.DTO.Mappers.csproj" Id="d078ef7e-56be-416d-8dba-2f5658caa123" />
+    <Project Path="ContactPage.DTOs/ContactPage.DTOs.csproj" Id="bad730c3-c609-4b59-803c-6b72b8a32afa" />
+  </Folder>
+  <Folder Name="/Framework/">
+    <Project Path="ContactPage.frameworks.Extension/ContactPage.frameworks.Extension.csproj" Id="68eda7d1-bd4b-49a5-a4d8-50c3a0a313a2" />
+    <Project Path="ContactPage.frameworks/ContactPage.frameworks.csproj" Id="5c853c9b-399e-4e56-9f7f-0f2f4f840f62" />
+  </Folder>
+  <Folder Name="/WebAPI/">
+    <Project Path="ContactPage/ContactPage.csproj" Id="f049b48b-e356-407a-af28-e1ff4c8b4771" />
+  </Folder>
+</Solution>
