@@ -9,8 +9,8 @@ namespace ContactPage.frameworks.Extension
 {
     public class ResponseVM
     {
-        public string Responsecode { get; set; }
-        private string _ResponseMessage;
+        public string? Responsecode { get; set; }
+        private string? _ResponseMessage;
 
         public ResponseVM( string successCode)
         {
@@ -31,8 +31,10 @@ namespace ContactPage.frameworks.Extension
                 {
                     return string.Empty;
                 }
-                return string.IsNullOrWhiteSpace(Responsecodes.ResourceManager.GetString(Responsecode)) ? _ResponseMessage : Responsecodes.ResourceManager.GetString(Responsecode);
+                return string.IsNullOrWhiteSpace(Responsecodes.ResourceManager.GetString(Responsecode))
+                    ? _ResponseMessage : Responsecodes.ResourceManager.GetString(Responsecode);
             }
+
             set => _ResponseMessage = value;
         }
 

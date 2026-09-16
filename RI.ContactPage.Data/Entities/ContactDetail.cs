@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ContactPage.Data.Entities
 {
-    public class ContactDetails : BaseEntity, IContactPageDetails
+    public class ContactDetail : BaseEntity, IContactPageDetails
     {
         public long hdrId { get; set; }
         public string Name { get; set; }
@@ -16,6 +16,6 @@ namespace ContactPage.Data.Entities
         public string? Description { get; set; }
         public long? CreatedUserId { get; set; }
         public long? EditedUserId { get; set; }
-        public  ContactHeader ContactHeader { get; set; }
+        public virtual ContactHeader? ContactHeader { get; set; }
     }
 }

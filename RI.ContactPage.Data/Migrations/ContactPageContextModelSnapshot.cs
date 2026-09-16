@@ -22,7 +22,7 @@ namespace ContactPage.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ContactPage.Data.Entities.ContactDetails", b =>
+            modelBuilder.Entity("ContactPage.Data.Entities.ContactDetail", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -100,10 +100,10 @@ namespace ContactPage.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactHeader", (string)null);
+                    b.ToTable("ContactHeaders", (string)null);
                 });
 
-            modelBuilder.Entity("ContactPage.Data.Entities.ContactDetails", b =>
+            modelBuilder.Entity("ContactPage.Data.Entities.ContactDetail", b =>
                 {
                     b.HasOne("ContactPage.Data.Entities.ContactHeader", "ContactHeader")
                         .WithMany("contactDetails")

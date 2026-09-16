@@ -24,8 +24,8 @@ namespace RI.ContactPage.Data
             _ = optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ContactPage;Trusted_Connection=True;TrustServerCertificate=True");
         }
 
-        public virtual DbSet<ContactHeader> ContactHeader { get; set; }
-        public virtual DbSet<ContactDetails> ContactDetails { get; set; } 
+        public virtual DbSet<ContactHeader> ContactHeaders { get; set; }
+        public virtual DbSet<ContactDetail> ContactDetails { get; set; } 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

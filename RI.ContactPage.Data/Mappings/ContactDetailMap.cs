@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ContactPage.Data.Mappings
 {
-    public class ContactDetailMap : IEntityTypeConfiguration<ContactDetails>
+    public class ContactDetailMap : IEntityTypeConfiguration<ContactDetail>
     {
-        public void Configure(EntityTypeBuilder<ContactDetails> builder)
+        public void Configure(EntityTypeBuilder<ContactDetail> builder)
         {
             _ = builder.ToTable("ContactDetails");
             _ = builder.HasKey(x => x.Id);

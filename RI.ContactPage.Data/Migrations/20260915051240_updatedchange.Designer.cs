@@ -12,8 +12,8 @@ using RI.ContactPage.Data;
 namespace ContactPage.Data.Migrations
 {
     [DbContext(typeof(ContactPageContext))]
-    [Migration("20260914100757_Changes")]
-    partial class Changes
+    [Migration("20260915051240_updatedchange")]
+    partial class updatedchange
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,7 +25,7 @@ namespace ContactPage.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ContactPage.Data.Entities.ContactDetails", b =>
+            modelBuilder.Entity("ContactPage.Data.Entities.ContactDetail", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -103,10 +103,10 @@ namespace ContactPage.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ContactHeader", (string)null);
+                    b.ToTable("ContactHeaders", (string)null);
                 });
 
-            modelBuilder.Entity("ContactPage.Data.Entities.ContactDetails", b =>
+            modelBuilder.Entity("ContactPage.Data.Entities.ContactDetail", b =>
                 {
                     b.HasOne("ContactPage.Data.Entities.ContactHeader", "ContactHeader")
                         .WithMany("contactDetails")

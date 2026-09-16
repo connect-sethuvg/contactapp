@@ -20,14 +20,14 @@ namespace ProductMS.Framework
         private readonly DbSet<TEntity> _dbSet;
         private static readonly object LockObject = new();
         private static readonly List<Expression<Func<TEntity, object>>> navigationproperties = new();
-        protected readonly ILogger _logger;
+        //protected readonly ILogger _logger;
 
         public Repository(DbContext dbContext, ILogger logger)
         {
             _dbContext = dbContext;
             _dbSet = dbContext.Set<TEntity>();
             @_queryable = _dbSet;
-            _logger = logger;
+            //_logger = logger;
         }
 
         private IQueryable<TContract> GetQuerable()
@@ -72,44 +72,44 @@ namespace ProductMS.Framework
             }
         }
 
-        public void Delete(TContract entity)
-        {
-            if (_dbContext.Entry((TEntity)entity).State == EntityState.Detached)
-            {
-                _ = _dbSet.Attach((TEntity)entity);
-            }
+        //public void Delete(TContract entity)
+        //{
+        //    if (_dbContext.Entry((TEntity)entity).State == EntityState.Detached)
+        //    {
+        //        _ = _dbSet.Attach((TEntity)entity);
+        //    }
 
-            _ = _dbSet.Remove((TEntity)entity);
-        }
-
-
-        public void DeleteAll(IEnumerable<TContract> entity)
-        {
-            lock (LockObject)
-            {
-                IEnumerable<TEntity> items = entity.Cast<TEntity>();
-                foreach (TEntity item in items)
-                {
-                    if (_dbContext.Entry(item).State == EntityState.Detached)
-                    {
-                        _ = _dbSet.Attach(item);
-                    }
-                    _ = _dbSet.Remove(item);
-                }
-            }
-        }
+        //    _ = _dbSet.Remove((TEntity)entity);
+        //}
 
 
-        public async Task<IEnumerable<TContract>> GetAllAsync()
-        {
-            IEnumerable<TContract> items = await _dbSet.ToListAsync();
-            return items;
-        }
-        public async Task<IEnumerable<TContract>> GetAllAsync(Expression<Func<TContract, bool>> condition)
-        {
-            IEnumerable<TContract> items = await _dbSet.AsNoTracking().Where(condition).ToListAsync();
-            return items;
-        }
+        //public void DeleteAll(IEnumerable<TContract> entity)
+        //{
+        //    lock (LockObject)
+        //    {
+        //        IEnumerable<TEntity> items = entity.Cast<TEntity>();
+        //        foreach (TEntity item in items)
+        //        {
+        //            if (_dbContext.Entry(item).State == EntityState.Detached)
+        //            {
+        //                _ = _dbSet.Attach(item);
+        //            }
+        //            _ = _dbSet.Remove(item);
+        //        }
+        //    }
+        //}
+
+
+        //public async Task<IEnumerable<TContract>> GetAllAsync()
+        //{
+        //    IEnumerable<TContract> items = await _dbSet.ToListAsync();
+        //    return items;
+        //}
+        //public async Task<IEnumerable<TContract>> GetAllAsync(Expression<Func<TContract, bool>> condition)
+        //{
+        //    IEnumerable<TContract> items = await _dbSet.AsNoTracking().Where(condition).ToListAsync();
+        //    return items;
+        //}
 
         public async Task<TContract> GetByIdAsync(int id)
         {
@@ -130,10 +130,10 @@ namespace ProductMS.Framework
             _queryable = _queryable.Include(navigationProperty);
         }
 
-        public async Task UpdateAsync(Expression<Func<TContract, bool>> condition, Action<TContract> updation)
-        {
-            await _dbSet.Where(condition).Select(x => x).ForEachAsync(updation);
-        }
+        //public async Task UpdateAsync(Expression<Func<TContract, bool>> condition, Action<TContract> updation)
+        //{
+        //    await _dbSet.Where(condition).Select(x => x).ForEachAsync(updation);
+        //}
 
         #region IDisposable 
         /// <summary>

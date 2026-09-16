@@ -22,7 +22,7 @@ namespace ContactPage.Data
             services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             _ = services.AddTransient<IContactPage, ContactHeader>();
-            _ = services.AddTransient<IContactPageDetails, ContactDetails>();
+            _ = services.AddTransient<IContactPageDetails, ContactDetail>();
 
             return services;
         }

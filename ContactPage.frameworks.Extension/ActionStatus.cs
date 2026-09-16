@@ -33,9 +33,21 @@ namespace ContactPage.frameworks.Extension
             Response = actionStatus.Response;
         }
 
+        public static implicit operator bool (ActionStatus actionStatus)
+        {
+            return actionStatus.IsSuccess;
+        }
+
+        public static explicit operator ActionStatus(bool isSuccess)
+        {
+            return new ActionStatus(isSuccess, new ResponseVM("DEFAULT"));
+        }
+
         public bool IsSuccess { get; set; } = false;
-        public Exception Exception { get; set; }
-        public ResponseVM Response { get; }
+        public Exception? Exception { get; set; }
+        public ResponseVM? Response { get; set; }
+        public bool HasException => Exception != null;
+
     }
 
     public class ActionStatus<T> : ActionStatus
@@ -54,17 +66,18 @@ namespace ContactPage.frameworks.Extension
         {
             Result = result;
         }
-
-        public ActionStatus(string locationCode, Exception exception) : base(locationCode, exception)
-        {
-            Result = default;
-        }
         public ActionStatus(bool isSuccess, T result, int totalCount) : base(isSuccess, new ResponseVM("DEFAULT"))
         {
             Result = result;
             TotalCount = totalCount;
         }
 
+
+        public ActionStatus(string locationCode, Exception exception) : base(locationCode, exception)
+        {
+            Result = default;
+        }
+        
         public T? Result { get; }
         public int TotalCount { get; set; }
     }

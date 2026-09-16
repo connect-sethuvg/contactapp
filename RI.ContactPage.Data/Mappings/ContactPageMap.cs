@@ -14,7 +14,7 @@ namespace ContactPage.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<ContactHeader> builder)
         {
-            _ = builder.ToTable("ContactHeader");
+            _ = builder.ToTable("ContactHeaders");
             _ = builder.HasKey(x => x.Id);
             _ = builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
             _ = builder.Property(x=> x.Email).IsRequired().HasMaxLength(50);
