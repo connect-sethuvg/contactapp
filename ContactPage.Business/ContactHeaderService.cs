@@ -1,6 +1,7 @@
 ﻿using ContactPage.Business.Contracts;
 using ContactPage.Data.Contracts;
 using ContactPage.DataService.Contracts;
+using ContactPage.DTOs;
 using ContactPage.DTOs.ContactHeader;
 using ContactPage.frameworks.Extension;
 using ContactPage.frameworks.Mappers;
@@ -32,6 +33,30 @@ namespace ContactPage.Business
             _editcontactHeaderMapper = editcontactHeaderMapper;
         }
 
+        public async Task<ActionStatus<ContactPageDTO>> ActivateContactHeaderofId(long id)
+        {
+            try
+            {
+                ActionStatus<IContactPage> data = await _contactHeaderDataService.ActivateContactHeaderofId(id);
+                if (data)
+                {
+                    ContactPageDTO response = _contactHeadermapper.ToObject(data.Result);
+                    return new ActionStatus<ContactPageDTO>(true, response, 1);
+                }
+                else if (data.HasException)
+                {
+                    return new ActionStatus<ContactPageDTO>(new ResponseVM("Data Exception occurred at ActivateContactHeaderofId"));
+                }
+                return new ActionStatus<ContactPageDTO>(data);
+
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<ContactPageDTO>(new ResponseVM("Exception occurred at ActivateContactHeaderofId"));
+
+            }
+        }
+
         public async Task<ActionStatus<ContactPageDTO>> CreateContactHeaderService(CreateContactPageDTO entities)
         {
             try
@@ -45,13 +70,61 @@ namespace ContactPage.Business
                 }
                 else if (data.HasException)
                 {
-                    return new ActionStatus<ContactPageDTO>(new ResponseVM("Exception occurred at CreateContactHeader"));
+                    return new ActionStatus<ContactPageDTO>(new ResponseVM(" Data Exception occurred at CreateContactHeader"));
                 }
                 return new ActionStatus<ContactPageDTO>(data);
             }
             catch (Exception ex)
             {
                 return new ActionStatus<ContactPageDTO>(new ResponseVM("Exception occurred at CreateContactHeader"));
+            }
+        }
+
+        public async Task<ActionStatus<ContactPageDTO>> DeactivateContactHeaderofId(long id)
+        {
+            try
+            {
+                ActionStatus<IContactPage> data = await _contactHeaderDataService.DeactivateContactHeaderofId(id);
+                if (data)
+                {
+                    ContactPageDTO response = _contactHeadermapper.ToObject(data.Result);
+                    return new ActionStatus<ContactPageDTO>(true, response, 1);
+                }
+                else if (data.HasException)
+                {
+                    return new ActionStatus<ContactPageDTO>(new ResponseVM("Data Exception occurred at DeactivateContactHeaderofId"));
+                }
+                return new ActionStatus<ContactPageDTO>(data);
+
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<ContactPageDTO>(new ResponseVM("Exception occurred at DeactivateContactHeaderofId"));
+
+            }
+        }
+
+        public async Task<ActionStatus<ContactPageDTO>> DeleteContactHeaderofId(long id)
+        {
+            try
+            {
+                ActionStatus<IContactPage> data = await _contactHeaderDataService.DeleteContactHeaderofId(id);
+                if (data)
+                {
+                    ContactPageDTO response = _contactHeadermapper.ToObject(data.Result);
+                    return new ActionStatus<ContactPageDTO>(true, response, 1);
+                }
+                else if (data.HasException)
+                {
+                    return new ActionStatus<ContactPageDTO>(new ResponseVM("Data Exception occurred at DeleteContactHeaderofId"));
+                }
+                return new ActionStatus<ContactPageDTO>(data);
+
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<ContactPageDTO>(new ResponseVM("Exception occurred at DeleteContactHeaderofId"));
+
             }
         }
 
@@ -68,7 +141,7 @@ namespace ContactPage.Business
                 }
                 else if (Res.HasException)
                 {
-                    return new ActionStatus<ContactPageDTO>(new ResponseVM("Exception occurred at EditContactHeaderService"));
+                    return new ActionStatus<ContactPageDTO>(new ResponseVM("Data Exception occurred at EditContactHeaderService"));
                 }
                 return new ActionStatus<ContactPageDTO>(Res.Response);
             }
@@ -76,8 +149,51 @@ namespace ContactPage.Business
             {
                 return new ActionStatus<ContactPageDTO>(new ResponseVM("Exception occurred at EditContactHeaderService"));
             }
-
         }
-        
+        public async Task<ActionStatus<ContactPageDTO>> GetContactHeaderbyid(long id)
+        {
+            try
+            {
+                ActionStatus<IContactPage> IdResult = await _contactHeaderDataService.GetContactHeaderbyid(id);
+                if (IdResult)
+                {
+                    ContactPageDTO response = _contactHeadermapper.ToObject(IdResult.Result);
+                    return new ActionStatus<ContactPageDTO>(true, response, 1);
+
+                }
+                else if (IdResult.HasException)
+                {
+                    return new ActionStatus<ContactPageDTO>(new ResponseVM("Data Exception occurred at EditContactHeaderService"));
+                }
+                return new ActionStatus<ContactPageDTO>(IdResult.Response);
+
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<ContactPageDTO>(new ResponseVM("Exception occurred at GetContactHeaderbyid"));
+            }
+        }
+
+        public async Task<ActionStatus<List<ContactPageDTO>>> GetContactPagePagination(PaginationParams paginationParams)
+        {
+            try
+            {
+                ActionStatus<List<IContactPage>> result = await _contactHeaderDataService.GetContactPagePagination(paginationParams);
+                if (result)
+                {
+                    List<ContactPageDTO> response =  _contactHeadermapper.ToObjects(result.Result).ToList();
+                    return new ActionStatus<List<ContactPageDTO>>(true, response, response.Count);
+                }
+                else if (result.HasException)
+                {
+                    return new ActionStatus<List<ContactPageDTO>>(new ResponseVM("Data Exception occurred at GetContactPagePagination"));
+                }
+                return new ActionStatus<List<ContactPageDTO>>(result.Response);
+            }
+            catch (Exception ex)
+            {
+                return new ActionStatus<List<ContactPageDTO>>(new ResponseVM("Exception occurred at GetContactPagePagination"));
+            }
+        }
     }
 }

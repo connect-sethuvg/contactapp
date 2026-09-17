@@ -26,11 +26,41 @@ POST {{ContactPage_HostAddress}}/api/contactpageheader/EditContactHeader
 Content-Type: application/json
 
 {
-  "id":2,
-  "Name": "Madhavan",
+"id":2,
+"Name": "Madhavan",
 "Email" : "VS@gmail.com",
-"Activestatus" : 0,
+"Activestatus" : 1,
 "EditedUserId":2
 }
+
+###
+
+@id=2
+GET {{ContactPage_HostAddress}}/api/contactpageheader/GetContactHeaderbyid?id={{id}}
+
+###
+
+POST {{ContactPage_HostAddress}}/api/contactpageheader/GetContactPagePagination
+Content-Type: application/json
+
+{
+  "SortColumn":"id",
+  "SortDirection":"asc",
+  "PageSize":10,
+  "Page":1,
+  "SearchTerm": ""
+}
+
+###
+@id=2
+GET {{ContactPage_HostAddress}}/api/contactpageheader/DeleteContactHeaderofId?id={{id}}
+
+###
+
+GET {{ContactPage_HostAddress}}/api/contactpageheader/ActivateContactHeaderofId?id={{id}}
+
+###
+
+GET {{ContactPage_HostAddress}}/api/contactpageheader/DeactivateContactHeaderofId?id={{id}}
 
 ###

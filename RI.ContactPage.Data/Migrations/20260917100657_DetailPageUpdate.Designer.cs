@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RI.ContactPage.Data;
 
@@ -11,9 +12,11 @@ using RI.ContactPage.Data;
 namespace ContactPage.Data.Migrations
 {
     [DbContext(typeof(ContactPageContext))]
-    partial class ContactPageContextModelSnapshot : ModelSnapshot
+    [Migration("20260917100657_DetailPageUpdate")]
+    partial class DetailPageUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
