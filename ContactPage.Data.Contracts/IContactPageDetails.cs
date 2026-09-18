@@ -13,7 +13,7 @@ namespace ContactPage.Data.Contracts
         string Name {  get; set; }
         long ContactNumber { get; set; }
         string? Description { get; set; }
-        public int ActiveStatus { get; set; }
+        public int? ActiveStatus { get; set; }
 
 
     }

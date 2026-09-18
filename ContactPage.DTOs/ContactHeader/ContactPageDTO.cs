@@ -11,7 +11,7 @@ namespace ContactPage.DTOs.ContactHeader
         public long id { get; set; }
         public string Name { get; set; }
         public string? Email { get; set; }
-        public int ActiveStatus { get; set; }
+        public int? ActiveStatus { get; set; }
         public long? CreatedUserId { get; set; }
         public long? EditedUserId { get; set; }
         public DateTime? CreatedDate { get; set; }

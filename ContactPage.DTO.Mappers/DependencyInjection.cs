@@ -1,6 +1,7 @@
 ﻿using ContactPage.Data.Contracts;
-using ContactPage.DTO.Mappers.ContactHeaderMapper;
 using ContactPage.DTO.Mappers.ContactDetailMapper;
+using ContactPage.DTO.Mappers.ContactHeaderMapper;
+using ContactPage.DTOs.ContactDetail;
 using ContactPage.DTOs.ContactHeader;
 using ContactPage.DTOs.ContactHeaderDetail;
 using ContactPage.frameworks.Mappers;
@@ -21,8 +22,10 @@ namespace ContactPage.DTO.Mappers
             services.AddScoped<APIDataMapper<IContactPage, ContactPageDTO>, HeaderMapper>();
             services.AddScoped<APIDataMapper<IContactPage, CreateContactPageDTO>, CreateHeaderMapper>();
             services.AddScoped<APIDataMapper<IContactPage, EditContactPageDTO>, EditHeaderMapper>();
-            //services.AddScoped<APIDataMapper<IContactPageDetails, ContactDetailDTO>, ContactDetailMapper>();
+
+            services.AddScoped<APIDataMapper<IContactPageDetails, ContactDetailDTO>, DetailMapper>();
             services.AddScoped<APIDataMapper<IContactPageDetails, CreateContactDetailDTO>, CreateContactDetailMapper>();
+            services.AddScoped<APIDataMapper<IContactPageDetails, EditContactDetailDTO>, EditContactDetailMapper>();
 
 
             return services;

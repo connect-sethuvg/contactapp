@@ -13,6 +13,7 @@ namespace ContactPage.Business
         public static IServiceCollection Addservice(this IServiceCollection services)
         {
             _ = services.AddScoped<IContactHeaderService, ContactHeaderService>();
+            _ = services.AddScoped<IContactHeaderDetailService, ContactDetailDataService>();
             
             return services;
 

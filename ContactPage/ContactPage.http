@@ -64,3 +64,65 @@ GET {{ContactPage_HostAddress}}/api/contactpageheader/ActivateContactHeaderofId?
 GET {{ContactPage_HostAddress}}/api/contactpageheader/DeactivateContactHeaderofId?id={{id}}
 
 ###
+
+
+POST {{ContactPage_HostAddress}}/api/contactpagedetails/EditContactDetail
+Content-Type: application/json
+
+{
+"id": 2,
+"hdrid": 2,
+"Name": "AMD",
+"Activestatus" : 1, 
+"CreatedUserId": 2, 
+"Description": " Edited contact Added 2",
+"contactnumber": 789456123
+}
+
+###
+
+POST {{ContactPage_HostAddress}}/api/contactpagedetails/EditContactDetail
+Content-Type: application/json
+
+{
+"id": 1,
+"hdrid": 1,
+"Name": "RRR",
+"Activestatus" : 0, 
+"CreatedUserId": 2, 
+"Description": "Main contact here !",
+"contactnumber": 789456123
+}
+
+###
+
+POST {{ContactPage_HostAddress}}/api/contactpagedetails/GetContactDetailPagePagination
+Content-Type: application/json
+
+{
+  "SortColumn":"id",
+  "SortDirection":"asc",
+  "PageSize":10,
+  "Page":1,
+  "SearchTerm": ""
+}
+
+###
+
+POST {{ContactPage_HostAddress}}/api/contactpagedetails/CreateContactDetail
+Content-Type: application/json
+
+{
+"hdrid": 2,
+"Name": "YEA",
+"CreatedUserId": 1, 
+"Description": "YEA contact",
+"contactnumber": 78932145611
+}
+
+
+###
+@id= 2
+GET {{ContactPage_HostAddress}}/api/contactpagedetails/DeleteContactDetail?id={{id}}
+
+###

@@ -52,6 +52,7 @@ namespace ContactPage.DataService
         {
             try
             {
+                result.ActiveStatus= 1;
                 IContactPage data = _contactPageRepo.Add(result);
                 int count = await UnitOfWork.CommitAsync();
                 if (count > 0)

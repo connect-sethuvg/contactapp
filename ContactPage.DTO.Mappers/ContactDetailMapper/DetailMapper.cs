@@ -9,29 +9,31 @@ using System.Threading.Tasks;
 
 namespace ContactPage.DTO.Mappers.ContactDetailMapper
 {
-    public class CreateContactDetailMapper : APIDataMapper<IContactPageDetails, CreateContactDetailDTO>
+    public class DetailMapper : APIDataMapper<IContactPageDetails, ContactDetailDTO>
     {
-        public CreateContactDetailMapper(IServiceProvider serviceProvider) : base(serviceProvider)
+        public DetailMapper(IServiceProvider serviceProvider) : base(serviceProvider)
         {
         }
 
-        public override IContactPageDetails ToEntity(CreateContactDetailDTO value)
+        public override IContactPageDetails ToEntity(ContactDetailDTO value)
         {
             IContactPageDetails entity = this.createEntity();
-            entity.hdrId = value.hdrId;
             entity.Id = value.Id;
+            entity.hdrId = value.hdrId;
             entity.Name = value.Name;
             entity.Description = value.Description;
             entity.ActiveStatus = value.ActiveStatus;
             entity.ContactNumber = value.ContactNumber;
             entity.CreatedUserId = value.CreatedUserId;
+            entity.EditedUserId = value.EditedUserId;
+            entity.CreatedDate = value.CreatedDate;
+            entity.EditedDate = value.EditedDate;
             return entity;
         }
 
-        public override CreateContactDetailDTO ToObject(IContactPageDetails entity)
+        public override ContactDetailDTO ToObject(IContactPageDetails entity)
         {
-            CreateContactDetailDTO value = new ();
-
+            ContactDetailDTO value = new();
             value.Id = entity.Id;
             value.hdrId = entity.hdrId;
             value.Name = entity.Name;
@@ -39,7 +41,11 @@ namespace ContactPage.DTO.Mappers.ContactDetailMapper
             value.ActiveStatus = entity.ActiveStatus;
             value.ContactNumber = entity.ContactNumber;
             value.CreatedUserId = entity.CreatedUserId;
+            value.EditedUserId = entity.EditedUserId;
+            value.CreatedDate = entity.CreatedDate;
+            value.EditedDate = entity.EditedDate;
             return value;
+
         }
     }
 }

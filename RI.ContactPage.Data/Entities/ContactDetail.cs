@@ -13,7 +13,7 @@ namespace ContactPage.Data.Entities
         public long hdrId { get; set; }
         public string Name { get; set; }
         public long ContactNumber { get; set; }
-        public int ActiveStatus { get; set; }
+        public int? ActiveStatus { get; set; }
         public string? Description { get; set; }
         public long? CreatedUserId { get; set; }
         public long? EditedUserId { get; set; }

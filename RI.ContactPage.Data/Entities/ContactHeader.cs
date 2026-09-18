@@ -12,7 +12,7 @@ namespace ContactPage.Data.Entities
     {
         public string Name { get; set; }
         public string Email { get; set; }
-        public int ActiveStatus { get; set; }
+        public int? ActiveStatus { get; set; }
         public long? CreatedUserId { get; set; }
         public long? EditedUserId { get; set; }
         public virtual ICollection<ContactDetail>? contactDetails { get; set; } 
