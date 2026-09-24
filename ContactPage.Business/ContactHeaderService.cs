@@ -70,7 +70,7 @@ namespace ContactPage.Business
                 }
                 else if (data.HasException)
                 {
-                    return new ActionStatus<ContactPageDTO>(new ResponseVM(" Data Exception occurred at CreateContactHeader"));
+                    return new ActionStatus<ContactPageDTO>(new ResponseVM("Data Exception occurred at CreateContactHeader"));
                 }
                 return new ActionStatus<ContactPageDTO>(data);
             }

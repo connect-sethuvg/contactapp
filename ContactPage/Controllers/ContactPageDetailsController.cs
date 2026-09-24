@@ -78,11 +78,11 @@ namespace ContactPage.Controllers
 
         [HttpPost]
         [Route("GetContactDetailPagePagination")]
-        public async Task<ActionResult> GetContactDetailPagePagination(PaginationParams paginationParams)
+        public async Task<ActionResult> GetContactDetailPagePagination(PaginationParams paginationParams, long hdrid)
         {
             try
             {
-                ActionStatus<List<ContactDetailDTO>> result = await _contactHeaderDetailService.GetContactDetailPagePagination(paginationParams);
+                ActionStatus<List<ContactDetailDTO>> result = await _contactHeaderDetailService.GetContactDetailPagePagination(paginationParams, hdrid);
 
                 if (result != null && result.IsSuccess == true)
                 {
@@ -100,6 +100,7 @@ namespace ContactPage.Controllers
                 return StatusCode(100, new ActionStatus(new ResponseVM("Exception occurred at GetContactDetailPagePagination API")));
             }
         }
+
         [HttpGet]
         [Route("DeleteContactDetail")]
         public async Task<ActionResult> DeleteContactDetail(long id)

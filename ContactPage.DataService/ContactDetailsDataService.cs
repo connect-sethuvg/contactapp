@@ -48,7 +48,7 @@ namespace ContactPage.DataService
 
         }
 
-        public async Task<ActionStatus<IContactPageDetails>> DeactivateContactHeaderofId(long id)
+        public async Task<ActionStatus<IContactPageDetails>> DeleteDetailofId(long id)
         {
             try
             {
@@ -103,10 +103,10 @@ namespace ContactPage.DataService
             }
         }
 
-        public async Task<ActionStatus<List<IContactPageDetails>>> GetContactDetailPagePagination(PaginationParams paginationParams)
+        public async Task<ActionStatus<List<IContactPageDetails>>> GetContactDetailPagePagination(PaginationParams paginationParams, long hdrid)
         {
             int count = 0;
-            IQueryable<IContactPageDetails> result = _contactDetailrepo.Entities.Where(x => x.ActiveStatus == 1);
+            IQueryable<IContactPageDetails> result = _contactDetailrepo.Entities.Where(x => x.ActiveStatus == 1 && x.hdrId == hdrid);
 
             if (!string.IsNullOrWhiteSpace(paginationParams.SearchTerm))
             {

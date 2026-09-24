@@ -65,7 +65,7 @@ namespace ContactPage.Business
         {
             try
             {
-                ActionStatus<IContactPageDetails> data = await _contactDetailsDataService.DeactivateContactHeaderofId(id);
+                ActionStatus<IContactPageDetails> data = await _contactDetailsDataService.DeleteDetailofId(id);
                 if (data)
                 {
                     ContactDetailDTO response = _contactDetailMapper.ToObject(data.Result);
@@ -83,7 +83,6 @@ namespace ContactPage.Business
                 return new ActionStatus<ContactDetailDTO>(new ResponseVM("Exception occurred at DeleteContactDetail"));
 
             }
-            ;
         }
 
         public async Task<ActionStatus<ContactDetailDTO>> EditContactDetail(EditContactDetailDTO dto)
@@ -111,12 +110,12 @@ namespace ContactPage.Business
             }
         }
 
-        public async Task<ActionStatus<List<ContactDetailDTO>>> GetContactDetailPagePagination(PaginationParams paginationParams)
+        public async Task<ActionStatus<List<ContactDetailDTO>>> GetContactDetailPagePagination(PaginationParams paginationParams, long hdrid)
         {
             try
             {
 
-                ActionStatus<List<IContactPageDetails>> result = await _contactDetailsDataService.GetContactDetailPagePagination(paginationParams);
+                ActionStatus<List<IContactPageDetails>> result = await _contactDetailsDataService.GetContactDetailPagePagination(paginationParams, hdrid);
                 if (result)
                 {
                     List<ContactDetailDTO> response = _contactDetailMapper.ToObjects(result.Result).ToList();
@@ -128,12 +127,10 @@ namespace ContactPage.Business
                 }
                 return new ActionStatus<List<ContactDetailDTO>>(result.Response);
 
-
             }
             catch(Exception ex)
             {
                 return new ActionStatus<List<ContactDetailDTO>>(new ResponseVM(" Data Exception occurred at GetContactDetailPagePagination"));
-
             }
         }
     }

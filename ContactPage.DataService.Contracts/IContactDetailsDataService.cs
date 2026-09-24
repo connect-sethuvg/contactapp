@@ -13,8 +13,8 @@ namespace ContactPage.DataService.Contracts
     public interface IContactDetailsDataService
     {
         Task<ActionStatus<IContactPageDetails>> CreateContactDetail(IContactPageDetails details);
-        Task<ActionStatus<IContactPageDetails>> DeactivateContactHeaderofId(long id);
+        Task<ActionStatus<IContactPageDetails>> DeleteDetailofId(long id);
         Task<ActionStatus<IContactPageDetails>> EditContactDetail(IContactPageDetails details);
-        Task<ActionStatus<List<IContactPageDetails>>> GetContactDetailPagePagination(PaginationParams paginationParams);
+        Task<ActionStatus<List<IContactPageDetails>>> GetContactDetailPagePagination(PaginationParams paginationParams, long hdrid);
     }
 }

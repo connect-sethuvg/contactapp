@@ -17,7 +17,6 @@ Content-Type: application/json
 "Email" : "VG@gmail.com",
 "Activestatus" : 1, 
 "CreatedUserId": 1
-
 }
 
 ###
@@ -114,15 +113,29 @@ Content-Type: application/json
 
 {
 "hdrid": 2,
-"Name": "YEA",
+"Name": "MME",
 "CreatedUserId": 1, 
-"Description": "YEA contact",
-"contactnumber": 78932145611
+"Description": "MME contact",
+"contactnumber": 654879213
 }
 
 
 ###
-@id= 2
+@id= 4
 GET {{ContactPage_HostAddress}}/api/contactpagedetails/DeleteContactDetail?id={{id}}
+
+###
+
+@hdrid=2
+POST {{ContactPage_HostAddress}}/api/contactpagedetails/GetContactDetailPagePagination?hdrid={{hdrid}}
+Content-Type: application/json
+
+{
+  "SortColumn":"",
+  "SortDirection":"",
+  "PageSize":10,
+  "Page":1,
+  "SearchTerm": ""
+}
 
 ###

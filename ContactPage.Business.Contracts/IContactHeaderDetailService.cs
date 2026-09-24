@@ -15,6 +15,6 @@ namespace ContactPage.Business.Contracts
         Task<ActionStatus<ContactDetailDTO>> CreateContactDetail(CreateContactDetailDTO dto);
         Task<ActionStatus<ContactDetailDTO>> DeleteContactDetail(long id);
         Task<ActionStatus<ContactDetailDTO>> EditContactDetail(EditContactDetailDTO dto);
-        Task<ActionStatus<List<ContactDetailDTO>>> GetContactDetailPagePagination(PaginationParams paginationParams);
+        Task<ActionStatus<List<ContactDetailDTO>>> GetContactDetailPagePagination(PaginationParams paginationParams, long hdrid);
     }
 }
