@@ -15,7 +15,6 @@ Content-Type: application/json
 {
 "Name": "VGS",
 "Email" : "VG@gmail.com",
-"Activestatus" : 1, 
 "CreatedUserId": 1
 }
 
@@ -112,11 +111,11 @@ POST {{ContactPage_HostAddress}}/api/contactpagedetails/CreateContactDetail
 Content-Type: application/json
 
 {
-"hdrid": 2,
-"Name": "MME",
+"hdrid": 1,
+"Name": "Sethu",
 "CreatedUserId": 1, 
-"Description": "MME contact",
-"contactnumber": 654879213
+"Description": "Sethu's contact",
+"contactnumber": 798465321
 }
 
 

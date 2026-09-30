@@ -18,7 +18,7 @@ namespace ContactPage.DTO.Mappers.ContactHeaderMapper
         public override IContactPage ToEntity(CreateContactPageDTO value)
         {
             IContactPage entity = this.createEntity();
-            entity.Id = value.id;
+            //entity.Id = value.id;
             entity.Name = value.Name;
             entity.Email = value.Email;
             entity.ActiveStatus = value.ActiveStatus;
@@ -29,7 +29,7 @@ namespace ContactPage.DTO.Mappers.ContactHeaderMapper
         public override CreateContactPageDTO ToObject(IContactPage entity)
         {
             CreateContactPageDTO value = new();
-            value.id = entity.Id;
+            //value.id = entity.Id;
             value.Name = entity.Name;
             value.Email = entity.Email;
             value.ActiveStatus = entity.ActiveStatus;

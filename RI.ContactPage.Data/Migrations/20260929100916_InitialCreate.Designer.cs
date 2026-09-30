@@ -12,8 +12,8 @@ using RI.ContactPage.Data;
 namespace ContactPage.Data.Migrations
 {
     [DbContext(typeof(ContactPageContext))]
-    [Migration("20260918114014_UpdatedDetail")]
-    partial class UpdatedDetail
+    [Migration("20260929100916_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
