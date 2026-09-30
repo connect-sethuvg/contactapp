@@ -12,7 +12,7 @@ namespace ContactPage.Data.Contracts
     {
         string Name { get; set; }
         string? Email { get; set; }
-        int ActiveStatus { get; set; }
+        int? ActiveStatus { get; set; }
 
     }
 }

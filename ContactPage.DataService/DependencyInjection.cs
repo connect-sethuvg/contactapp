@@ -13,6 +13,7 @@ namespace ContactPage.DataService
         public static IServiceCollection AddDataService(this IServiceCollection services)
         {
             _ = services.AddScoped<IContactHeaderDataService, ContactHeaderDataService>();
+            _ = services.AddScoped<IContactDetailsDataService, ContactDetailsDataService>();
 
             return services;
         }

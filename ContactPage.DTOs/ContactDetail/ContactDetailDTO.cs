@@ -4,17 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ContactPage.DTOs.ContactHeader
+namespace ContactPage.DTOs.ContactHeaderDetail
 {
-    public class ContactPageDTO
+    public class ContactDetailDTO
     {
-        public long id { get; set; }
+        public long Id {  get; set; }
+        public long hdrId { get; set; }
         public string Name { get; set; }
-        public string? Email { get; set; }
         public int? ActiveStatus { get; set; }
+        public long ContactNumber { get; set; }
+        public string? Description { get; set; }
         public long? CreatedUserId { get; set; }
         public long? EditedUserId { get; set; }
         public DateTime? CreatedDate { get; set; }
         public DateTime? EditedDate { get; set; }
+
     }
 }
