@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ContactPage.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class updatedchange : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,6 +39,7 @@ namespace ContactPage.Data.Migrations
                     hdrId = table.Column<long>(type: "bigint", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     ContactNumber = table.Column<long>(type: "bigint", maxLength: 15, nullable: false),
+                    ActiveStatus = table.Column<int>(type: "int", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: true),
                     CreatedUserId = table.Column<long>(type: "bigint", nullable: true),
                     EditedUserId = table.Column<long>(type: "bigint", nullable: true),

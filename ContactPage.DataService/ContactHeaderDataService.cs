@@ -168,7 +168,7 @@ namespace ContactPage.DataService
             try
             {
                 int count = 0;
-                IQueryable<IContactPage> result = _contactPageRepo.Entities.Where(x => x.ActiveStatus == 1);
+                IQueryable<IContactPage> result = _contactPageRepo.Entities.Where(x => x.ActiveStatus == 1 || x.ActiveStatus== 0);
 
                 if (!string.IsNullOrWhiteSpace(paginationParams.SearchTerm))
                 {

@@ -8,7 +8,7 @@ namespace ContactPage.DTOs.ContactHeader
 {
     public class CreateContactPageDTO
     {
-        public long id { get; set; }
+        //public long id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public int? ActiveStatus { get; set; }
